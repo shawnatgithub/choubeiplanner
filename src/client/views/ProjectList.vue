@@ -15,7 +15,7 @@ const projectStore = useProjectStore()
 const showDialog = ref(false)
 const newName = ref('')
 const newDescription = ref('')
-const cornerstones = ref({
+const cornerstones = ref<Record<string, string>>({
   '项目签约': '',
   '动工': '',
   '竣工备案': '',

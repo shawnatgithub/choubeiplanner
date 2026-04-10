@@ -1,5 +1,5 @@
 import ExcelJS from 'exceljs'
-import type { Rule, Project, Node, Conflict } from '../../shared/types'
+import type { Rule, Project, Node, Conflict } from '../shared/types'
 
 export async function parseRulesFromExcel(buffer: Buffer): Promise<Rule[]> {
   const workbook = new ExcelJS.Workbook()

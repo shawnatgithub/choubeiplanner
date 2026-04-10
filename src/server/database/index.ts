@@ -1,5 +1,5 @@
 import Database from 'better-sqlite3'
-import type { Project, Node, Dependency, Rule, CornerstoneData } from '../shared/types'
+import type { Project, Node, Dependency, Rule, CornerstoneData } from '../../shared/types'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import fs from 'fs'
@@ -77,7 +77,7 @@ export function createDatabase(): Database.Database {
   return db
 }
 
-export const db = createDatabase()
+export const db: Database.Database = createDatabase()
 
 export function createProject(name: string, description: string, cornerstoneData: CornerstoneData): number {
   const stmt = db.prepare(`

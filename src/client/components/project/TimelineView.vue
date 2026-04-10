@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { Node } from '../../shared/types'
+import type { Node } from '../../../shared/types'
 
 interface Props {
   nodes: Node[]

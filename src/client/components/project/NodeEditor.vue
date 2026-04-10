@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch, computed } from 'vue'
-import type { Node, AcceptanceStandard } from '../../shared/types'
+import type { Node, AcceptanceStandard } from '../../../shared/types'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -71,8 +71,9 @@ function handleSubmit() {
   }
   
   for (const [key, standard] of Object.entries(formData.value.acceptance_standard)) {
-    if (standard.enabled && standard.deadline) {
-      if (standard.deadline > formData.value.end_date!) {
+    const std = standard as { enabled: boolean; deadline: string | null }
+    if (std.enabled && std.deadline) {
+      if (std.deadline > formData.value.end_date!) {
         if (!confirm(`验收标准 "${key}" 的截止时间晚于节点结束日期，是否继续保存？`)) {
           return
         }
@@ -164,7 +165,8 @@ function handleDelete() {
               <Input
                 id="startDate"
                 type="date"
-                v-model="formData.start_date"
+                :value="formData.start_date || ''"
+                @input="formData.start_date = ($event.target as HTMLInputElement).value || null"
               />
             </div>
             <div class="space-y-2">
@@ -172,7 +174,8 @@ function handleDelete() {
               <Input
                 id="endDate"
                 type="date"
-                v-model="formData.end_date"
+                :value="formData.end_date || ''"
+                @input="formData.end_date = ($event.target as HTMLInputElement).value || null"
               />
             </div>
           </div>
@@ -191,18 +194,18 @@ function handleDelete() {
                     <span class="text-sm text-muted-foreground">启用</span>
                     <input
                       type="checkbox"
-                      :checked="standard.enabled"
-                      @change="handleAcceptanceChange(key, 'enabled', !standard.enabled)"
+                      :checked="(standard as any).enabled"
+                      @change="handleAcceptanceChange(String(key), 'enabled', !(standard as any).enabled)"
                       class="h-4 w-4 rounded border-gray-300"
                     />
                   </label>
                 </div>
-                <div v-if="standard.enabled" class="mt-2">
+                <div v-if="(standard as any).enabled" class="mt-2">
                   <Label class="text-xs">截止时间</Label>
                   <Input
                     type="date"
-                    :value="standard.deadline || ''"
-                    @input="handleAcceptanceChange(key, 'deadline', ($event.target as HTMLInputElement).value || null)"
+                    :value="(standard as any).deadline || ''"
+                    @input="handleAcceptanceChange(String(key), 'deadline', ($event.target as HTMLInputElement).value || null)"
                     class="mt-1"
                   />
                 </div>
