@@ -133,7 +133,9 @@ app.post('/api/projects/:id/generate', (req, res) => {
         acceptance_standard: node.acceptance_standard,
         start_date: node.start_date,
         end_date: node.end_date,
-        is_custom: false
+        is_custom: false,
+        offset_remark: node.offset_remark,
+        dependency_remark: node.dependency_remark
       })
       nodeNameToId.set(node.name, id)
     }

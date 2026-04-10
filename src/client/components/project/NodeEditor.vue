@@ -180,6 +180,17 @@ function handleDelete() {
             </div>
           </div>
           
+          <div v-if="!isNew" class="grid grid-cols-2 gap-4 bg-muted/30 p-3 rounded-lg border">
+            <div class="space-y-1">
+              <Label class="text-xs text-muted-foreground">偏移备注 (CSV)</Label>
+              <p class="text-sm break-words">{{ formData.offset_remark || '-' }}</p>
+            </div>
+            <div class="space-y-1">
+              <Label class="text-xs text-muted-foreground">前置备注 (CSV)</Label>
+              <p class="text-sm break-words">{{ formData.dependency_remark || '-' }}</p>
+            </div>
+          </div>
+          
           <div class="border-t pt-4">
             <h3 class="font-medium mb-3">验收标准</h3>
             <div class="space-y-3">

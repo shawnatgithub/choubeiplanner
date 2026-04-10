@@ -43,6 +43,8 @@ export function createDatabase(): Database.Database {
       start_date DATE,
       end_date DATE,
       is_custom INTEGER DEFAULT 0,
+      offset_remark TEXT,
+      dependency_remark TEXT,
       FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE CASCADE
     )
   `)
@@ -70,7 +72,9 @@ export function createDatabase(): Database.Database {
       baseline TEXT,
       offset_days INTEGER,
       duration_days INTEGER,
-      dependencies TEXT
+      dependencies TEXT,
+      offset_remark TEXT,
+      dependency_remark TEXT
     )
   `)
   
@@ -142,8 +146,8 @@ export function deleteProject(id: number): boolean {
 
 export function createNode(node: Omit<Node, 'id'>): number {
   const stmt = db.prepare(`
-    INSERT INTO nodes (project_id, name, level, profession, acceptance_standard, start_date, end_date, is_custom)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO nodes (project_id, name, level, profession, acceptance_standard, start_date, end_date, is_custom, offset_remark, dependency_remark)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `)
   const result = stmt.run(
     node.project_id,
@@ -153,7 +157,9 @@ export function createNode(node: Omit<Node, 'id'>): number {
     JSON.stringify(node.acceptance_standard),
     node.start_date,
     node.end_date,
-    node.is_custom ? 1 : 0
+    node.is_custom ? 1 : 0,
+    node.offset_remark || null,
+    node.dependency_remark || null
   )
   return result.lastInsertRowid as number
 }
@@ -278,10 +284,10 @@ export function insertRule(rule: Omit<Rule, 'id'>): number {
 
 export function insertRulesBatch(rules: Omit<Rule, 'id'>[]): void {
   const insert = db.prepare(`
-    INSERT INTO rules (name, level, profession, acceptance_standard, baseline, offset_days, duration_days, dependencies)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO rules (name, level, profession, acceptance_standard, baseline, offset_days, duration_days, dependencies, offset_remark, dependency_remark)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `)
-  
+
   const insertMany = db.transaction((rules: Omit<Rule, 'id'>[]) => {
     for (const rule of rules) {
       insert.run(
@@ -292,10 +298,12 @@ export function insertRulesBatch(rules: Omit<Rule, 'id'>[]): void {
         rule.baseline,
         rule.offset_days,
         rule.duration_days,
-        JSON.stringify(rule.dependencies)
+        JSON.stringify(rule.dependencies),
+        rule.offset_remark || null,
+        rule.dependency_remark || null
       )
     }
   })
-  
+
   insertMany(rules)
 }

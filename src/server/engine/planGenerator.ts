@@ -28,7 +28,9 @@ export function generatePlan(cornerstoneData: CornerstoneData, rules: Rule[]): O
       acceptance_standard: rule.acceptance_standard,
       start_date: startDate.toISOString().split('T')[0],
       end_date: endDate.toISOString().split('T')[0],
-      is_custom: false
+      is_custom: false,
+      offset_remark: rule.offset_remark,
+      dependency_remark: rule.dependency_remark
     })
   }
   

@@ -149,6 +149,8 @@ function getProfessionColor(profession: string): string {
                   <th class="px-4 py-3 text-left text-sm font-medium">专业</th>
                   <th class="px-4 py-3 text-left text-sm font-medium">开始日期</th>
                   <th class="px-4 py-3 text-left text-sm font-medium">结束日期</th>
+                  <th class="px-4 py-3 text-left text-sm font-medium">偏移备注</th>
+                  <th class="px-4 py-3 text-left text-sm font-medium">前置备注</th>
                   <th class="px-4 py-3 text-left text-sm font-medium">自定义</th>
                 </tr>
               </thead>
@@ -171,6 +173,8 @@ function getProfessionColor(profession: string): string {
                   </td>
                   <td class="px-4 py-3 text-sm">{{ node.start_date || '-' }}</td>
                   <td class="px-4 py-3 text-sm">{{ node.end_date || '-' }}</td>
+                  <td class="px-4 py-3 text-sm max-w-[150px] truncate" :title="node.offset_remark || '-'">{{ node.offset_remark || '-' }}</td>
+                  <td class="px-4 py-3 text-sm max-w-[200px] truncate" :title="node.dependency_remark || '-'">{{ node.dependency_remark || '-' }}</td>
                   <td class="px-4 py-3 text-sm">{{ node.is_custom ? '是' : '否' }}</td>
                 </tr>
               </tbody>

@@ -22,6 +22,8 @@ export interface Rule {
     node: string
     type: 'prerequisite' | 'must_before'
   }>
+  offset_remark?: string
+  dependency_remark?: string
 }
 
 export interface Node {
@@ -34,6 +36,8 @@ export interface Node {
   start_date: string | null
   end_date: string | null
   is_custom: boolean
+  offset_remark?: string
+  dependency_remark?: string
 }
 
 export interface Dependency {

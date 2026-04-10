@@ -120,7 +120,9 @@ export function importRulesFromCsv() {
       baseline: baseline,
       offset_days: offset_days,
       duration_days: duration_days > 0 ? duration_days : 7, // 默认最少7天
-      dependencies: parseDependencies(record['前置工作'])
+      dependencies: parseDependencies(record['前置工作']),
+      offset_remark: record['依存关系(前X天，-X后X天，+X)'] || '',
+      dependency_remark: record['前置工作'] || ''
     }
     
     rules.push(rule)
