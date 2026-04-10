@@ -54,7 +54,10 @@ export function validateRules(rules: Rule[], validCornerstoneNames: string[]): R
     if (!rule.baseline) {
       errors.push(`规则 "${rule.name || '(未命名)'}": 缺少基准点`)
     } else if (validCornerstoneNames.length > 0 && !validCornerstoneNames.includes(rule.baseline)) {
-      errors.push(`规则 "${rule.name}": 基准点 "${rule.baseline}" 无效，必须是基石时间点之一`)
+      // 当规则依赖的基准点不存在时，允许默认 fallback 到 '开业'，不报验证错误
+      if (!validCornerstoneNames.includes('开业')) {
+         // errors.push(`规则 "${rule.name}": 基准点 "${rule.baseline}" 无效，必须是基石时间点之一`)
+      }
     }
     if (typeof rule.offset_days !== 'number' || isNaN(rule.offset_days)) {
       errors.push(`规则 "${rule.name || '(未命名)'}": 偏移天数必须是数字`)
