@@ -169,12 +169,38 @@ app.post('/api/projects/:id/generate', (req, res) => {
     const dependencies = getDependenciesByProject(projectId)
     const conflicts = detectConflicts(nodes, dependencies)
     
+    // 计算 generationReport
+    const report = {
+      cornerstoneBasedNodes: [] as { name: string; baseline: string }[],
+      missingDependencyNodes: [] as string[],
+      suggestions: [] as string[]
+    }
+    
+    for (const rule of rules) {
+      // 记录基于基石生成的节点
+      report.cornerstoneBasedNodes.push({ name: rule.name, baseline: rule.baseline })
+      
+      // 检查缺失依赖关系的节点 (非里程碑且依赖为空)
+      if (rule.dependencies.length === 0 && rule.level !== 0 && rule.level !== 9) {
+        report.missingDependencyNodes.push(rule.name)
+      }
+    }
+    
+    // 组装建议
+    if (report.missingDependencyNodes.length > 0) {
+      report.suggestions.push(`有 ${report.missingDependencyNodes.length} 个常规节点缺乏明确的前置依赖，建议在时间轴或列表中进行手动复核和调整。`)
+    }
+    if (conflicts.hasErrors) {
+      report.suggestions.push(`检测到 ${conflicts.conflicts.length} 个时间冲突，请优先解决红色警告节点。`)
+    }
+    
     res.json({ 
       success: true, 
       data: { 
         nodes: getNodesByProject(projectId),
         dependencies: getDependenciesByProject(projectId),
-        conflicts
+        conflicts,
+        generationReport: report
       } 
     })
   } catch (error) {

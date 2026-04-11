@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import type { Project, Node, Dependency, Rule, ConflictDetectionResult } from '../../shared/types'
+import type { Project, Node, Dependency, Rule, ConflictDetectionResult, GenerationReport } from '../../shared/types'
 import { api } from '../api'
 
 export const useProjectStore = defineStore('project', () => {
@@ -9,6 +9,7 @@ export const useProjectStore = defineStore('project', () => {
   const nodes = ref<Node[]>([])
   const dependencies = ref<Dependency[]>([])
   const conflicts = ref<ConflictDetectionResult>({ hasErrors: false, conflicts: [] })
+  const generationReport = ref<GenerationReport | null>(null)
   const loading = ref(false)
   const error = ref<string | null>(null)
   
@@ -103,6 +104,7 @@ export const useProjectStore = defineStore('project', () => {
       nodes.value = result.nodes
       dependencies.value = result.dependencies
       conflicts.value = result.conflicts
+      generationReport.value = result.generationReport
       return true
     } catch (e) {
       error.value = (e as Error).message
@@ -185,6 +187,7 @@ export const useProjectStore = defineStore('project', () => {
     nodes.value = []
     dependencies.value = []
     conflicts.value = { hasErrors: false, conflicts: [] }
+    generationReport.value = null
   }
   
   return {
@@ -193,6 +196,7 @@ export const useProjectStore = defineStore('project', () => {
     nodes,
     dependencies,
     conflicts,
+    generationReport,
     loading,
     error,
     loadProjects,

@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert'
 import TimelineView from '@/components/project/TimelineView.vue'
 import NodeEditor from '@/components/project/NodeEditor.vue'
+import PlanReportDialog from '@/components/project/PlanReportDialog.vue'
 import { ArrowLeft, RefreshCw, Download, Plus, AlertTriangle, XCircle } from 'lucide-vue-next'
 import type { Node } from '../../shared/types'
 
@@ -15,6 +16,8 @@ const router = useRouter()
 const projectStore = useProjectStore()
 
 const showNodeEditor = ref(false)
+const showReportPrompt = ref(false)
+const showReportDialog = ref(false)
 const editingNode = ref<Node | null>(null)
 const viewMode = ref<'timeline' | 'list'>('timeline')
 const selectedRuleType = ref<'default' | 'custom'>('default')
@@ -38,7 +41,8 @@ async function handleGenerate() {
   if (!success && projectStore.error) {
     alert(`生成计划失败: ${projectStore.error}`)
   } else {
-    alert('计划已重新生成！')
+    // 计划生成成功，弹出提示让用户选择是否查看节点检查报告
+    showReportPrompt.value = true
   }
 }
 
@@ -218,6 +222,31 @@ function getProfessionColor(profession: string): string {
       @save="handleSaveNode"
       @delete="handleDeleteNode"
       @close="showNodeEditor = false"
+    />
+
+    <!-- 生成完成后的提示框 -->
+    <Teleport to="body">
+      <div v-if="showReportPrompt" class="fixed inset-0 z-[60] flex items-center justify-center">
+        <div class="fixed inset-0 bg-black/60" @click="showReportPrompt = false"></div>
+        <div class="relative z-10 w-full max-w-md rounded-lg border bg-background p-6 shadow-lg">
+          <h2 class="text-lg font-semibold mb-2">计划生成成功</h2>
+          <p class="text-muted-foreground text-sm mb-6">
+            已基于选择的规则库完成所有节点时间的自动排布。是否要查看「节点检查说明」？说明中将指出基于基石生成的节点分布，并提示缺乏依赖关系的异常节点。
+          </p>
+          <div class="flex justify-end gap-3">
+            <Button variant="outline" @click="showReportPrompt = false">暂不查看</Button>
+            <Button @click="showReportPrompt = false; showReportDialog = true">查看说明</Button>
+          </div>
+        </div>
+      </div>
+    </Teleport>
+
+    <!-- 节点检查说明详细弹窗 -->
+    <PlanReportDialog
+      v-if="showReportDialog"
+      :report="projectStore.generationReport"
+      :totalNodes="projectStore.nodes.length"
+      @close="showReportDialog = false"
     />
   </div>
 </template>

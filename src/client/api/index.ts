@@ -1,4 +1,4 @@
-import type { Project, Node, Dependency, Rule, ConflictDetectionResult, RuleValidationResult, CornerstoneData } from '../../shared/types'
+import type { Project, Node, Dependency, Rule, ConflictDetectionResult, RuleValidationResult, CornerstoneData, GenerationReport } from '../../shared/types'
 
 const API_BASE = '/api'
 
@@ -47,7 +47,7 @@ export const api = {
     return fetchApi(`/projects/${id}`, { method: 'DELETE' })
   },
   
-  async generatePlan(projectId: number, ruleType: 'default' | 'custom' = 'default'): Promise<{ nodes: Node[]; dependencies: Dependency[]; conflicts: ConflictDetectionResult }> {
+  async generatePlan(projectId: number, ruleType: 'default' | 'custom' = 'default'): Promise<{ nodes: Node[]; dependencies: Dependency[]; conflicts: ConflictDetectionResult; generationReport: GenerationReport }> {
     return fetchApi(`/projects/${projectId}/generate`, { 
       method: 'POST',
       body: JSON.stringify({ ruleType })

@@ -70,6 +70,12 @@ export interface ConflictDetectionResult {
   conflicts: Conflict[]
 }
 
+export interface GenerationReport {
+  cornerstoneBasedNodes: { name: string; baseline: string }[]
+  missingDependencyNodes: string[]
+  suggestions: string[]
+}
+
 export interface RuleValidationResult {
   valid: boolean
   errors: string[]
