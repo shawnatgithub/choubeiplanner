@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Button } from '@/components/ui/button'
 import { X, CheckCircle2, AlertTriangle, Info } from 'lucide-vue-next'
-import type { GenerationReport } from '../../shared/types'
+import type { GenerationReport } from '../../../shared/types'
 
 defineProps<{
   report: GenerationReport | null
