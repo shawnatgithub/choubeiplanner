@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计划生成模块展示</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <style>
+        .modal-enter-active,
+        .modal-leave-active {
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-enter-from,
+        .modal-leave-to {
+            opacity: 0;
+        }
+        
+        .fade-enter-active, .fade-leave-active {
+            transition: opacity 0.5s ease;
+        }
+        .fade-enter-from, .fade-leave-to {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 h-screen overflow-hidden">
+    <div id="app" class="h-full flex flex-col">
+        <!-- Header -->
+        <header class="bg-white shadow-sm px-6 py-4 flex justify-between items-center z-10">
+            <h1 class="text-xl font-bold text-gray-800">项目筹备期计划管理</h1>
+            <div>
+                <button 
+                    @click="generatePlan" 
+                    :disabled="isGenerating || isGenerated"
+                    class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded shadow transition disabled:opacity-50 disabled:cursor-not-allowed">
+                    {{ isGenerating ? '生成中...' : (isGenerated ? '已生成' : '生成计划') }}
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content (Plan Table) -->
+        <main class="flex-1 overflow-auto p-6">
+            <div v-if="nodes.length > 0" class="bg-white rounded-lg shadow overflow-hidden">
+                <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                    <h2 class="text-lg font-medium text-gray-800">计划节点明细</h2>
+                    <span class="text-sm text-gray-500">共 {{ nodes.length }} 个节点</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50 sticky top-0">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">节点名称</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">前置节点</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">节点类型</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">节点职能</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">计划完成时点</th>
+                                <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider" v-if="isEditing">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr v-for="(node, index) in nodes" :key="index" :class="{'bg-yellow-50': isEditing && isLackingNode(node)}">
+                                <td class="px-6 py-4 text-sm text-gray-900" :title="node['节点说明']">
+                                    <div class="w-64 truncate">{{ node['节点'] || '-' }}</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    <span v-if="isCornerstoneNode(node)" class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                        无 (基石)
+                                    </span>
+                                    <span v-else-if="isLackingNode(node)" class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                                        {{ node['前置节点编号'] || '缺乏依赖' }}
+                                    </span>
+                                    <span v-else class="text-gray-900">{{ node['前置节点编号'] }}</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    {{ node['节点类型'] || '-' }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    {{ node['节点职能'] || '-' }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    <input v-if="isEditing" type="text" v-model="node['计划完成时点\n（交总部)']" class="border rounded px-2 py-1 w-32 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="请调整时间">
+                                    <span v-else :class="{'text-red-500 font-medium': !node['计划完成时点\n（交总部)']}">{{ node['计划完成时点\n（交总部)'] || '待定' }}</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium" v-if="isEditing">
+                                    <button class="text-blue-600 hover:text-blue-900">保存</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div v-else class="flex items-center justify-center h-full text-gray-400">
+                请点击右上角"生成计划"以加载数据
+            </div>
+        </main>
+
+        <!-- Notification Toast (After generation) -->
+        <transition name="fade">
+            <div v-if="showNotification" class="fixed top-20 right-6 max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden z-50">
+                <div class="p-4">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <svg class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="ml-3 w-0 flex-1 pt-0.5">
+                            <p class="text-sm font-medium text-gray-900">计划生成成功！</p>
+                            <p class="mt-1 text-sm text-gray-500">系统已根据基石节点自动推算排期。</p>
+                            <div class="mt-3 flex space-x-7">
+                                <button @click="viewExplanation" class="bg-white rounded-md text-sm font-medium text-blue-600 hover:text-blue-500 focus:outline-none">
+                                    查看说明
+                                </button>
+                                <button @click="showNotification = false" class="bg-white rounded-md text-sm font-medium text-gray-700 hover:text-gray-500 focus:outline-none">
+                                    暂不查看
+                                </button>
+                            </div>
+                        </div>
+                        <div class="ml-4 flex-shrink-0 flex">
+                            <button @click="showNotification = false" class="bg-white rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none">
+                                <span class="sr-only">关闭</span>
+                                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+
+        <!-- Explanation Modal -->
+        <transition name="modal">
+            <div v-if="showModal" class="fixed z-50 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" @click="closeModal" aria-hidden="true"></div>
+                    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+                    
+                    <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full">
+                        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                            <div class="sm:flex sm:items-start">
+                                <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
+                                    <svg class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                                    <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">计划生成说明</h3>
+                                    
+                                    <div class="mt-4 space-y-6">
+                                        <!-- Cornerstone Stats -->
+                                        <div>
+                                            <h4 class="text-md font-semibold text-gray-800 flex items-center">
+                                                <span class="w-3 h-3 rounded-full bg-green-500 mr-2"></span>
+                                                基石节点与自动推算 ({{ generatedNodesCount }} 个)
+                                            </h4>
+                                            <p class="text-sm text-gray-600 mt-1">
+                                                以下节点是项目的核心基石，系统已根据这些基石节点的完成时间，自动推算出其他 {{ generatedNodesCount }} 个具备明确依赖关系的节点计划。
+                                            </p>
+                                            <div class="mt-2 bg-gray-50 rounded border border-gray-200 p-3 max-h-32 overflow-y-auto">
+                                                <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                                                    <li v-for="node in cornerstoneNodes.slice(0, 5)" :key="node['节点']">{{ node['节点'] }}</li>
+                                                    <li v-if="cornerstoneNodes.length > 5" class="text-gray-400 italic">...等共 {{ cornerstoneNodes.length }} 个基石节点</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <!-- Lacking Dependencies -->
+                                        <div>
+                                            <h4 class="text-md font-semibold text-gray-800 flex items-center">
+                                                <span class="w-3 h-3 rounded-full bg-red-500 mr-2"></span>
+                                                缺乏依赖关系需手动调整 ({{ lackingNodesCount }} 个)
+                                            </h4>
+                                            <p class="text-sm text-gray-600 mt-1">
+                                                部分节点的前置依赖属于"自定义"或未明确，系统无法自动计算其准确时间。<strong>强烈建议您进入编辑模式手动调整以下节点的排期。</strong>
+                                            </p>
+                                            <div class="mt-2 bg-red-50 rounded border border-red-100 p-3 max-h-40 overflow-y-auto">
+                                                <ul class="list-disc pl-5 text-sm text-red-700 space-y-1">
+                                                    <li v-for="node in lackingNodes.slice(0, 10)" :key="node['节点']">
+                                                        <span class="font-medium">{{ node['节点'] }}</span> 
+                                                        <span class="text-red-500 text-xs ml-2">({{ node['前置节点编号'] || '无依赖' }})</span>
+                                                    </li>
+                                                    <li v-if="lackingNodes.length > 10" class="text-red-400 italic">...等共 {{ lackingNodes.length }} 个节点</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                            <button type="button" @click="startEditing" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">
+                                编辑计划
+                            </button>
+                            <button type="button" @click="closeModal" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                                了解，关闭
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+        const { createApp, ref, computed } = Vue
+
+        createApp({
+            setup() {
+                const nodes = ref([])
+                const isGenerating = ref(false)
+                const isGenerated = ref(false)
+                const showNotification = ref(false)
+                const showModal = ref(false)
+                const isEditing = ref(false)
+
+                // Helpers for categorizing nodes
+                const isCornerstoneNode = (node) => {
+                    return node['前置节点编号'] === '无' && node['前置节点'] === '无'
+                }
+
+                const isLackingNode = (node) => {
+                    const id = String(node['前置节点编号'] || '').trim()
+                    return id.includes('自定义') || (id === '无' && !isCornerstoneNode(node)) || id === ''
+                }
+
+                const isGeneratedNode = (node) => {
+                    return !isCornerstoneNode(node) && !isLackingNode(node)
+                }
+
+                // Computed metrics for Explanation
+                const cornerstoneNodes = computed(() => nodes.value.filter(isCornerstoneNode))
+                const generatedNodesCount = computed(() => nodes.value.filter(isGeneratedNode).length)
+                const lackingNodes = computed(() => nodes.value.filter(isLackingNode))
+                const lackingNodesCount = computed(() => lackingNodes.value.length)
+
+                const generatePlan = () => {
+                    isGenerating.value = true;
+                    // Mock network delay for generation
+                    setTimeout(() => {
+                        Papa.parse('plan-model-time-relation.csv', {
+                            download: true,
+                            header: true,
+                            skipEmptyLines: true,
+                            complete: (results) => {
+                                // Fix BOM issue if present in headers
+                                const cleanedData = results.data.map(row => {
+                                    const newRow = {};
+                                    for (let key in row) {
+                                        const cleanKey = key.replace(/^\uFEFF/, '');
+                                        newRow[cleanKey] = row[key];
+                                    }
+                                    return newRow;
+                                }).filter(r => r['节点'] && r['节点'].trim() !== '');
+
+                                nodes.value = cleanedData;
+                                isGenerating.value = false;
+                                isGenerated.value = true;
+                                
+                                // Show pop-up notification automatically
+                                showNotification.value = true;
+                            },
+                            error: (err) => {
+                                console.error('Error loading CSV:', err);
+                                alert('加载数据失败，请检查 CSV 文件');
+                                isGenerating.value = false;
+                            }
+                        });
+                    }, 1000);
+                }
+
+                const viewExplanation = () => {
+                    showNotification.value = false;
+                    showModal.value = true;
+                }
+
+                const closeModal = () => {
+                    showModal.value = false;
+                }
+
+                const startEditing = () => {
+                    showModal.value = false;
+                    isEditing.value = true;
+                    // Auto-scroll to top to let user see edit fields
+                    document.querySelector('main').scrollTop = 0;
+                }
+
+                return {
+                    nodes,
+                    isGenerating,
+                    isGenerated,
+                    showNotification,
+                    showModal,
+                    isEditing,
+                    generatePlan,
+                    viewExplanation,
+                    closeModal,
+                    startEditing,
+                    isCornerstoneNode,
+                    isLackingNode,
+                    cornerstoneNodes,
+                    generatedNodesCount,
+                    lackingNodes,
+                    lackingNodesCount
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
