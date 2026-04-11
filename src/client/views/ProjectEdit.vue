@@ -32,7 +32,12 @@ watch(projectId, (newId) => {
 
 async function handleGenerate() {
   if (!confirm('重新生成计划将覆盖现有节点，确定继续吗？')) return
-  await projectStore.generatePlan()
+  const success = await projectStore.generatePlan()
+  if (!success && projectStore.error) {
+    alert(`生成计划失败: ${projectStore.error}`)
+  } else {
+    alert('计划已重新生成！')
+  }
 }
 
 function handleExport() {
