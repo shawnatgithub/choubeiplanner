@@ -17,6 +17,7 @@ const projectStore = useProjectStore()
 const showNodeEditor = ref(false)
 const editingNode = ref<Node | null>(null)
 const viewMode = ref<'timeline' | 'list'>('timeline')
+const selectedRuleType = ref<'default' | 'custom'>('default')
 
 const projectId = computed(() => parseInt(route.params.id as string))
 
@@ -31,8 +32,9 @@ watch(projectId, (newId) => {
 })
 
 async function handleGenerate() {
-  if (!confirm('重新生成计划将覆盖现有节点，确定继续吗？')) return
-  const success = await projectStore.generatePlan()
+  const ruleName = selectedRuleType.value === 'default' ? '系统默认规则' : '自定义规则'
+  if (!confirm(`重新生成计划将覆盖现有节点 (使用${ruleName})，确定继续吗？`)) return
+  const success = await projectStore.generatePlan(selectedRuleType.value)
   if (!success && projectStore.error) {
     alert(`生成计划失败: ${projectStore.error}`)
   } else {
@@ -97,6 +99,13 @@ function getProfessionColor(profession: string): string {
       </div>
       
       <div class="flex items-center gap-2">
+        <select 
+          v-model="selectedRuleType"
+          class="h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+        >
+          <option value="default">使用系统默认规则</option>
+          <option value="custom">使用自定义规则(规则管理库)</option>
+        </select>
         <Button variant="outline" @click="openNodeEditor(null)">
           <Plus class="mr-2 h-4 w-4" />
           添加节点

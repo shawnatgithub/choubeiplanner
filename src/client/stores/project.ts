@@ -93,13 +93,13 @@ export const useProjectStore = defineStore('project', () => {
     }
   }
   
-  async function generatePlan() {
+  async function generatePlan(ruleType: 'default' | 'custom' = 'default') {
     if (!currentProject.value) return false
     
     loading.value = true
     error.value = null
     try {
-      const result = await api.generatePlan(currentProject.value.id)
+      const result = await api.generatePlan(currentProject.value.id, ruleType)
       nodes.value = result.nodes
       dependencies.value = result.dependencies
       conflicts.value = result.conflicts

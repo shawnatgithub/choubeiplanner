@@ -47,8 +47,11 @@ export const api = {
     return fetchApi(`/projects/${id}`, { method: 'DELETE' })
   },
   
-  async generatePlan(projectId: number): Promise<{ nodes: Node[]; dependencies: Dependency[]; conflicts: ConflictDetectionResult }> {
-    return fetchApi(`/projects/${projectId}/generate`, { method: 'POST' })
+  async generatePlan(projectId: number, ruleType: 'default' | 'custom' = 'default'): Promise<{ nodes: Node[]; dependencies: Dependency[]; conflicts: ConflictDetectionResult }> {
+    return fetchApi(`/projects/${projectId}/generate`, { 
+      method: 'POST',
+      body: JSON.stringify({ ruleType })
+    })
   },
   
   async getNodes(projectId: number): Promise<Node[]> {

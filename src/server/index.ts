@@ -23,6 +23,7 @@ import { parseRulesFromExcel, exportProjectToExcel, generateRulesTemplate } from
 import { generatePlan } from './engine/planGenerator.js'
 import { detectConflicts } from './engine/conflictDetector.js'
 import { validateRules } from './engine/ruleEvaluator.js'
+import { defaultRules } from './engine/defaultRules.js'
 import type { CornerstoneData, Node, Dependency } from '../shared/types.js'
 
 const app = express()
@@ -99,16 +100,22 @@ app.post('/api/projects/:id/generate', (req, res) => {
   try {
     const projectId = parseInt(req.params.id)
     const project = getProject(projectId)
+    const { ruleType = 'default' } = req.body || {}
     
     if (!project) {
       res.status(404).json({ success: false, error: '项目不存在' })
       return
     }
     
-    const rules = listRules()
-    if (rules.length === 0) {
-      res.status(400).json({ success: false, error: '没有可用的规则，请先导入规则' })
-      return
+    let rules = []
+    if (ruleType === 'custom') {
+      rules = listRules()
+      if (rules.length === 0) {
+        res.status(400).json({ success: false, error: '自定义规则库为空，请先导入规则' })
+        return
+      }
+    } else {
+      rules = defaultRules
     }
     
     const validation = validateRules(rules, Object.keys(project.cornerstone_data))
