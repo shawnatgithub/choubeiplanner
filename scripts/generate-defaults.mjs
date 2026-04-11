@@ -7,23 +7,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const CSV_PATH = path.join(__dirname, '../plan-model-time-relation-revised.csv.xls')
 const OUT_PATH = path.join(__dirname, '../src/server/engine/defaultRules.ts')
 
-function parseRelativeTime(relativeTimeStr) {
-  if (!relativeTimeStr || relativeTimeStr.trim() === '') return 0;
-  let months = 0;
-  const parts = relativeTimeStr.trim().split(' ');
-  for (const part of parts) {
-    if (part.includes('/')) {
-      const [num, den] = part.split('/');
-      if (num && den) {
-        months += parseInt(num) / parseInt(den);
-      }
-    } else {
-      months += parseInt(part);
-    }
-  }
-  return Math.round(months * 30) || 0;
-}
-
 function parseDependencies(depStr) {
   if (!depStr || depStr === '无' || depStr === '自定义') return [];
   const deps = [];
@@ -43,10 +26,24 @@ const content = fs.readFileSync(CSV_PATH, 'utf-8')
 const cleanContent = content.replace(/^\uFEFF/, '')
 const records = parse(cleanContent, { columns: true, skip_empty_lines: true, relax_column_count: true })
 
+const validRecords = records.filter(r => r['节点'] && r['节点'] !== '无' && r['节点'] !== '/')
+
+const nodeDates = new Map()
+validRecords.forEach(r => {
+  const dStr = r['计划完成时点（交总部)']
+  if (dStr) {
+    const d = new Date(dStr)
+    if (!isNaN(d.getTime())) {
+      nodeDates.set(r['节点'], d)
+    }
+  }
+})
+
+const kaiyeDate = nodeDates.get('开业') || new Date('2027-11-01')
+
 const rules = []
-for (const record of records) {
+for (const record of validRecords) {
   const name = record['节点']
-  if (!name || name === '无' || name === '/') continue
   
   const levelStr = record['节点类型'] || ''
   let level = 3
@@ -57,13 +54,26 @@ for (const record of records) {
   let baseline = record['参考时点']
   if (!baseline || baseline === '无') baseline = '开业'
   
-  const duration_days = parseRelativeTime(record['相对时间(月)'])
-  let offset_days = 0;
-  const depRelation = record['依存关系(前X天，-X后X天，+X)'];
-  if (depRelation && !isNaN(parseInt(depRelation))) {
-    offset_days = parseInt(depRelation);
+  const nodeDate = nodeDates.get(name)
+  let baseDate = nodeDates.get(baseline)
+  if (!baseDate) {
+    baseline = '开业'
+    baseDate = kaiyeDate
+  }
+  
+  let offset_days = 0
+  if (nodeDate && baseDate) {
+    offset_days = Math.round((nodeDate - baseDate) / (1000 * 60 * 60 * 24))
   } else {
-    offset_days = -duration_days;
+    // Fallback if date is missing (e.g. "本项目无此节点")
+    // Use the explicit '依存关系' or '相对时间' if available
+    const depRelation = record['依存关系(前X天，-X后X天，+X)']
+    if (depRelation && !isNaN(parseInt(depRelation))) {
+      offset_days = parseInt(depRelation)
+    } else {
+      // Just fallback to 0
+      offset_days = 0
+    }
   }
   
   rules.push({
@@ -75,7 +85,7 @@ for (const record of records) {
     },
     baseline: baseline,
     offset_days: offset_days,
-    duration_days: duration_days > 0 ? duration_days : 7,
+    duration_days: 1, // 默认 1 天
     dependencies: parseDependencies(record['前置工作']),
     offset_remark: record['依存关系(前X天，-X后X天，+X)'] || '',
     dependency_remark: record['前置工作'] || ''

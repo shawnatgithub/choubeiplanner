@@ -19,7 +19,7 @@ export function generatePlan(cornerstoneData: CornerstoneData, rules: Rule[]): O
     
     const baselineDate = new Date(baselineDateStr)
     const startDate = addDays(baselineDate, rule.offset_days)
-    const endDate = addDays(startDate, rule.duration_days)
+    const endDate = addDays(startDate, Math.max(0, rule.duration_days - 1))
     
     nodes.push({
       name: rule.name,

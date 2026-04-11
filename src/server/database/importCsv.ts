@@ -76,35 +76,52 @@ export function importRulesFromCsv() {
   
   const rules: Omit<Rule, 'id'>[] = []
   
+  const nodeDates = new Map<string, Date>()
+  for (const rec of records) {
+    const record = rec as Record<string, string>
+    const name = record['节点']
+    const dStr = record['计划完成时点（交总部)']
+    if (name && dStr) {
+      const d = new Date(dStr)
+      if (!isNaN(d.getTime())) {
+        nodeDates.set(name, d)
+      }
+    }
+  }
+  
+  const kaiyeDate = nodeDates.get('开业') || new Date('2027-11-01')
+  
   for (const rec of records) {
     const record = rec as Record<string, string>
     const name = record['节点']
     if (!name || name === '无' || name === '/') continue
     
-    // 解析级别，例如 "L2" -> 2, "M" -> 0 (里程碑最高级), "S" -> 9 (特殊级)
     const levelStr = record['节点类型'] || ''
     let level = 3
     if (levelStr === 'M') level = 0
     else if (levelStr === 'S') level = 9
     else if (levelStr.startsWith('L')) level = parseInt(levelStr.replace('L', '')) || 3
     
-    // 解析基准点，如果参考时点为空或无，则默认关联到开业
     let baseline = record['参考时点']
     if (!baseline || baseline === '无') {
       baseline = '开业'
     }
     
-    // 解析持续时间
-    const duration_days = parseRelativeTime(record['相对时间(月)'])
+    const nodeDate = nodeDates.get(name)
+    let baseDate = nodeDates.get(baseline)
+    if (!baseDate) {
+      baseline = '开业'
+      baseDate = kaiyeDate
+    }
     
-    // 解析偏移量 (前置/后置天数)
-    let offset_days = 0;
-    const depRelation = record['依存关系(前X天，-X后X天，+X)'];
-    if (depRelation && !isNaN(parseInt(depRelation))) {
-      offset_days = parseInt(depRelation);
+    let offset_days = 0
+    if (nodeDate && baseDate) {
+      offset_days = Math.round((nodeDate.getTime() - baseDate.getTime()) / (1000 * 60 * 60 * 24))
     } else {
-      // 如果没有明确定义，默认是在基准点之前减去持续时间
-      offset_days = -duration_days;
+      const depRelation = record['依存关系(前X天，-X后X天，+X)']
+      if (depRelation && !isNaN(parseInt(depRelation))) {
+        offset_days = parseInt(depRelation)
+      }
     }
     
     const rule: Omit<Rule, 'id'> = {
@@ -119,7 +136,7 @@ export function importRulesFromCsv() {
       },
       baseline: baseline,
       offset_days: offset_days,
-      duration_days: duration_days > 0 ? duration_days : 7, // 默认最少7天
+      duration_days: 1, // 修正默认节点时长为 1 天，避免伪冲突
       dependencies: parseDependencies(record['前置工作']),
       offset_remark: record['依存关系(前X天，-X后X天，+X)'] || '',
       dependency_remark: record['前置工作'] || ''

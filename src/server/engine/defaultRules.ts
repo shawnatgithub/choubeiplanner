@@ -13,8 +13,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -2004,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "/",
@@ -34,9 +34,9 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
         "deadline": null
       }
     },
-    "baseline": "商管签约",
-    "offset_days": 5,
-    "duration_days": 5,
+    "baseline": "开业",
+    "offset_days": -1999,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商管服务协议签署",
@@ -56,9 +56,9 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
         "deadline": null
       }
     },
-    "baseline": "商管签约",
-    "offset_days": 5,
-    "duration_days": 5,
+    "baseline": "开业",
+    "offset_days": -1999,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商管服务协议签署",
@@ -78,9 +78,9 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
         "deadline": null
       }
     },
-    "baseline": "投后交圈会",
-    "offset_days": -15,
-    "duration_days": 15,
+    "baseline": "开业",
+    "offset_days": -1989,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "内部投后交圈会",
@@ -100,9 +100,9 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
         "deadline": null
       }
     },
-    "baseline": "商管签约",
-    "offset_days": 60,
-    "duration_days": 60,
+    "baseline": "开业",
+    "offset_days": -1944,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商管服务协议签署后2个月内",
@@ -123,8 +123,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1972,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商管服务协议签署",
@@ -144,9 +144,9 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
         "deadline": null
       }
     },
-    "baseline": "商管签约",
-    "offset_days": -15,
-    "duration_days": 15,
+    "baseline": "开业",
+    "offset_days": -1989,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商管服务协议签署",
@@ -166,9 +166,9 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
         "deadline": null
       }
     },
-    "baseline": "商管签约",
-    "offset_days": -45,
-    "duration_days": 45,
+    "baseline": "开业",
+    "offset_days": -1959,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "现场踏勘、设计概念30",
@@ -189,8 +189,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -2247,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、投前定位研判完成",
@@ -215,8 +215,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -2126,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "定位报告V1.0（内审）、V1.0万达地产确认；",
@@ -241,8 +241,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -2030,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "定位报告V1.0（内审）、V1.0万达地产确认；",
@@ -267,8 +267,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1981,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商管服务协议签署",
@@ -289,8 +289,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -2126,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产概念设计50%完成",
@@ -311,8 +311,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 15,
-    "duration_days": 7,
+    "offset_days": -2006,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产建筑概念设计100%完成且万象生活评审通过",
@@ -333,8 +333,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 15,
-    "duration_days": 7,
+    "offset_days": -1470,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产建筑方案设计100%完成且万象生活评审通过",
@@ -355,8 +355,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1115,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产建筑初步设计100%完成且万象生活评审通过",
@@ -377,8 +377,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1986,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、万达地产组织设计单位完成建筑概念50%设计成果，深度满足要求",
@@ -403,8 +403,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1961,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、万达地产组织设计单位完成建筑概念100%设计成果，深度满足要求",
@@ -433,8 +433,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1961,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、万达地产组织设计单位完成结构概念100%设计成果，深度满足要求",
@@ -463,8 +463,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -951,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、万达地产组织设计单位完成室内概念100%设计成果，深度满足要求",
@@ -493,8 +493,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -866,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、万达地产组织设计单位完成景观概念100%设计成果，深度满足要求",
@@ -523,8 +523,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1763,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、万达地产组织设计单位完成建筑方案100%设计成果，深度满足要求",
@@ -549,8 +549,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1774,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、万达地产组织设计单位完成结构方案100%设计成果，深度满足要求",
@@ -575,8 +575,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1770,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、万达地产组织设计单位完成机电方案100%设计成果，深度满足要求",
@@ -601,8 +601,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -866,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、万达地产组织设计单位完成室内方案100%设计成果，深度满足要求",
@@ -631,8 +631,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -824,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、万达地产组织设计单位完成景观方案100%设计成果，深度满足要求",
@@ -661,8 +661,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1579,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、万达地产组织设计单位完成建初步设计100%成果，深度满足要求",
@@ -687,8 +687,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1546,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、万达地产组织设计单位完成结构初步设计100%成果，深度满足要求",
@@ -713,8 +713,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1415,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、万达地产组织设计单位完成机电初步设计100%成果，深度满足要求",
@@ -740,7 +740,7 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
     },
     "baseline": "开业",
     "offset_days": 0,
-    "duration_days": 7,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、万达地产组织设计单位完成室内初步设计100%成果，深度满足要求",
@@ -770,7 +770,7 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
     },
     "baseline": "开业",
     "offset_days": 0,
-    "duration_days": 7,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、万达地产组织设计单位完成景观初步设计100%成果，深度满足要求",
@@ -799,8 +799,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1266,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、万达地产组织设计单位完成建筑施工图设计100%成果，深度满足要求",
@@ -825,8 +825,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1260,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、万达地产组织设计单位完成结构施工图设计100%成果，深度满足要求",
@@ -851,8 +851,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1263,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、万达地产组织设计单位完成机电施工图设计100%成果，深度满足要求",
@@ -877,8 +877,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": -10125,
-    "duration_days": 10125,
+    "offset_days": -737,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产组织现场进行幕墙设计样板打样",
@@ -899,8 +899,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": -12150,
-    "duration_days": 12150,
+    "offset_days": -781,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产组织现场进行精装设计样板打样",
@@ -921,8 +921,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": -30390,
-    "duration_days": 30390,
+    "offset_days": -489,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产组织现场进行景观设计样板打样",
@@ -943,8 +943,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -730,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "完成扩初设计100%商业各专业提资；",
@@ -974,7 +974,7 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
     },
     "baseline": "开业",
     "offset_days": 0,
-    "duration_days": 7,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产明确招商中心建设方案",
@@ -995,8 +995,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -730,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业前24个月",
@@ -1017,8 +1017,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -520,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业前18个月",
@@ -1039,8 +1039,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -731,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业筹备预算汇报万达地产通过",
@@ -1061,8 +1061,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -366,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "招商策略计划书审批完成；",
@@ -1091,8 +1091,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -520,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业前18个月",
@@ -1113,8 +1113,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -365,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "确定租赁合同范本",
@@ -1135,8 +1135,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -216,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "招策回顾评审完成；",
@@ -1165,8 +1165,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -124,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业前4个月",
@@ -1187,8 +1187,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -62,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业前2个月",
@@ -1209,8 +1209,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": 9,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "购物中心开业",
@@ -1231,8 +1231,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": 380,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "购物中心首个经营年度结束",
@@ -1253,8 +1253,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 90,
-    "duration_days": 7,
+    "offset_days": -93,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "项目开业前6个月",
@@ -1275,8 +1275,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -185,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "租户进场前完成",
@@ -1297,8 +1297,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -215,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "相关方进场前完成",
@@ -1319,8 +1319,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -215,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "相关岗位到岗后；",
@@ -1345,8 +1345,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -185,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "项目开业前6个月",
@@ -1367,8 +1367,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -154,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "项目开业时间确认",
@@ -1389,8 +1389,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -32,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "项目开业时间确认",
@@ -1411,8 +1411,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "项目开业时间确认",
@@ -1433,8 +1433,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业前完成",
@@ -1455,8 +1455,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业前完成",
@@ -1477,8 +1477,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "完成开业前安全检查",
@@ -1499,8 +1499,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -366,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商业公司设立",
@@ -1521,8 +1521,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -823,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商业定位报告评审通过",
@@ -1543,8 +1543,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -274,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "明确项目定位；",
@@ -1573,8 +1573,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -185,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业前6个月",
@@ -1595,8 +1595,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -216,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "物业人员进场计划；",
@@ -1621,8 +1621,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -32,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业活动方案明确",
@@ -1643,8 +1643,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -185,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产主责的停车场交通方案及导引导视方案评审完成，并完成划线机导视打样",
@@ -1665,8 +1665,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -185,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产主责的景观方案评审完成并根据意见落实",
@@ -1687,8 +1687,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -32,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产主责的消防硬件完成安装，消防联动正常",
@@ -1709,8 +1709,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -185,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产主责的正式水电已开通",
@@ -1731,8 +1731,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -93,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产主责的给排水系统安装完成、通球试验完成",
@@ -1753,8 +1753,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -32,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产主责的燃气施工完成",
@@ -1775,8 +1775,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -185,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产主责的机电系统安装完成",
@@ -1797,8 +1797,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -32,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "确认万达地产完成承接查验问题整改",
@@ -1819,8 +1819,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -32,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产主责完成竣工验收",
@@ -1841,8 +1841,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -185,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "最晚于开业前6个月",
@@ -1863,8 +1863,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -210,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "明确资料清单",
@@ -1885,8 +1885,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -185,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "承接查验第三方单位确定",
@@ -1907,8 +1907,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -94,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "@4.24万达地产主责的机电安装完成，第三方单位具备进场条件",
@@ -1929,8 +1929,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -32,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "承接查验整改清单出具",
@@ -1951,8 +1951,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -185,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "TC负责人到岗",
@@ -1973,8 +1973,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -215,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "招商洽谈品牌",
@@ -1995,8 +1995,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -246,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "招商与租户确定工程条件；",
@@ -2021,8 +2021,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -215,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "主力店工程条件已拉通确认；",
@@ -2047,8 +2047,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -205,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、租户设计指引发放；",
@@ -2073,8 +2073,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -185,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "项目开业日确定；",
@@ -2103,8 +2103,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -154,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商管中心完成铺位接收；",
@@ -2129,8 +2129,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -154,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产主责的项目消防验收及竣备完成；",
@@ -2159,8 +2159,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -94,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "租赁合同签署率（户数）达到50%",
@@ -2181,8 +2181,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -63,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "租赁合同签署率（户数）达到75%",
@@ -2203,8 +2203,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -365,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业筹备会",
@@ -2225,8 +2225,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -2,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "租户进场装修；",
@@ -2251,8 +2251,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -17,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "店铺装修完成",
@@ -2273,8 +2273,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产主责的项目完成一次消防验收和开业检；",
@@ -2299,8 +2299,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "项目完成一次通气（可同时进行）",
@@ -2321,8 +2321,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -17,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "营运部负责人到岗",
@@ -2343,8 +2343,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -808,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "营运部负责人到岗",
@@ -2365,8 +2365,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -808,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业前8个月",
@@ -2387,8 +2387,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "证照取得：规划验收、门牌地址证明信、地下空间备案、房产证（或替代文件）；",
@@ -2413,8 +2413,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -62,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、招商品牌确认100%，根据品牌清单进行业绩测算；",
@@ -2443,8 +2443,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -32,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业日确定；",
@@ -2469,8 +2469,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业日确定；",
@@ -2495,8 +2495,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1、店铺竣工；",
@@ -2521,8 +2521,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业日确定；",
@@ -2547,8 +2547,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -808,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "推广提资人员已到岗",
@@ -2573,8 +2573,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -216,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "推广负责人已到岗",
@@ -2607,8 +2607,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -216,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "与《开业前整合策略报告》同期启动",
@@ -2629,8 +2629,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -216,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "《开业前整合策略报告》完成审批",
@@ -2655,8 +2655,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -32,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产提供开业前的户外广告使用许可",
@@ -2677,8 +2677,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -94,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "推广类前介提资复核已完成",
@@ -2707,8 +2707,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -62,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "与万达地产确定购物中心开业日",
@@ -2729,8 +2729,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -32,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "完成推广类前介提资在施工图阶段的复核",
@@ -2751,8 +2751,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "案名审批已完成",
@@ -2777,8 +2777,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -216,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "客关负责人已到岗；",
@@ -2811,8 +2811,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -32,
+    "duration_days": 1,
     "dependencies": [],
     "offset_remark": "",
     "dependency_remark": "无"
@@ -2828,8 +2828,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -185,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "客关负责人已到岗；",
@@ -2862,8 +2862,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -808,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "客关负责人已到岗；",
@@ -2892,8 +2892,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -32,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "明确是否开展预付卡业务，并向属地城市政府备案",
@@ -2914,8 +2914,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -274,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商管服务协议签署",
@@ -2936,8 +2936,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -229,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "设立项目采购组织机构",
@@ -2958,8 +2958,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -199,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "编制各采购计划事项涉及新入库供方《供应商考察报告》",
@@ -2980,8 +2980,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -366,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产主责提供机电图初稿",
@@ -3002,8 +3002,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "基于万达地产确认的信息化建设整体方案，进行信息化建设提资，万达地产确认提资清单",
@@ -3024,8 +3024,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -16,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产主责的信号覆盖工作完成",
@@ -3046,8 +3046,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产主责的信息化基础部分建设完成",
@@ -3068,8 +3068,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "信息化基础建设完成",
@@ -3090,8 +3090,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -32,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商管软件系统授权协议包含地图中台",
@@ -3116,8 +3116,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -246,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "推广部门给出信息化前介必要的项目基础信息",
@@ -3138,8 +3138,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -62,
+    "duration_days": 1,
     "dependencies": [],
     "offset_remark": "",
     "dependency_remark": "无"
@@ -3155,8 +3155,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -32,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1.确认项目收单行、POS到位",
@@ -3181,8 +3181,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -7,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "1.万达地产主责的道闸系统采购完成；",
@@ -3211,8 +3211,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -4,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业前2-3天",
@@ -3233,8 +3233,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -489,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商管软件系统授权协议签署",
@@ -3255,8 +3255,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1989,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商管服务协议签署",
@@ -3277,8 +3277,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -366,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "在合同约定的最晚开业日前至少提前18个月",
@@ -3299,8 +3299,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -366,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "与万达地产确认预计开业日",
@@ -3325,8 +3325,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -366,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业前1年",
@@ -3347,8 +3347,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -550,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商业公司设立",
@@ -3369,8 +3369,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -93,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业前3个月",
@@ -3391,8 +3391,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -62,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业前2月",
@@ -3413,8 +3413,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -231,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产完成消防验收",
@@ -3435,8 +3435,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -200,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产完成竣工验收",
@@ -3457,8 +3457,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": 329,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业前完成",
@@ -3479,8 +3479,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -1,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业前完成",
@@ -3502,7 +3502,7 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
     },
     "baseline": "开业",
     "offset_days": 0,
-    "duration_days": 7,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "确认试营业",
@@ -3524,7 +3524,7 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
     },
     "baseline": "开业",
     "offset_days": 0,
-    "duration_days": 7,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "确认试营业",
@@ -3546,7 +3546,7 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
     },
     "baseline": "开业",
     "offset_days": 0,
-    "duration_days": 7,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "接收万达地产承接查验纸质资料",
@@ -3603,8 +3603,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": 7,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业",
@@ -3625,8 +3625,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": 152,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产遗留问题全部整改完成",
@@ -3647,8 +3647,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": 152,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "开业",
@@ -3669,8 +3669,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -550,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "万达地产确认预计开业日",
@@ -3691,8 +3691,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -335,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商业公司设立",
@@ -3713,8 +3713,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -489,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "前置需商业公司完成设立及印章刻制",
@@ -3736,7 +3736,7 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
     },
     "baseline": "开业",
     "offset_days": 0,
-    "duration_days": 7,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "前置需商业公司完成设立及印章刻制",
@@ -3757,8 +3757,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -427,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "前置需商业公司完成设立及印章刻制",
@@ -3779,8 +3779,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -274,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商业公司设立后",
@@ -3809,8 +3809,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -550,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商管服务协议签署",
@@ -3831,8 +3831,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": 39,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商业公司设立",
@@ -3853,8 +3853,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -519,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商业公司总经理到岗",
@@ -3875,8 +3875,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -365,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商业公司总经理到岗",
@@ -3897,8 +3897,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": 92,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商业公司总经理到岗",
@@ -3920,7 +3920,7 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
     },
     "baseline": "开业",
     "offset_days": 0,
-    "duration_days": 7,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商业公司设立",
@@ -3942,7 +3942,7 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
     },
     "baseline": "开业",
     "offset_days": 0,
-    "duration_days": 7,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商业公司资料交割",
@@ -3963,8 +3963,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -519,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商业公司总经理到岗",
@@ -3985,8 +3985,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -519,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商业公司总经理到岗",
@@ -4008,7 +4008,7 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
     },
     "baseline": "开业",
     "offset_days": 0,
-    "duration_days": 7,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商业公司总经理到岗",
@@ -4029,8 +4029,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -365,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商业公司总经理到岗",
@@ -4052,7 +4052,7 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
     },
     "baseline": "开业",
     "offset_days": 0,
-    "duration_days": 7,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "门店部门负责人到岗",
@@ -4073,8 +4073,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -31,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "门店部门负责人到岗",
@@ -4095,8 +4095,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": 30,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "购物中心开业",
@@ -4117,8 +4117,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -365,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "签署《商管软件系统授权许可协议》且明确财务系统范围",
@@ -4139,8 +4139,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -61,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商业公司设立",
@@ -4161,8 +4161,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -32,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商业公司设立",
@@ -4183,8 +4183,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -550,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商业公司设立",
@@ -4205,8 +4205,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -550,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商业公司设立",
@@ -4227,8 +4227,8 @@ export const defaultRules: Omit<Rule, 'id'>[] = [
       }
     },
     "baseline": "开业",
-    "offset_days": 0,
-    "duration_days": 7,
+    "offset_days": -550,
+    "duration_days": 1,
     "dependencies": [
       {
         "node": "商业公司设立",
